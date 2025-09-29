@@ -13,7 +13,7 @@ import Contact from './components/Contact';
 import Experience from './components/Experience';
 import Tips from './components/Tips';
 import Certifications from './components/Certifications';
-import SmartAvatar from "./smartAvatar/SmartAvatar"; // ✅ use the new avatar
+
 import './App.css';
 
 function App() {
@@ -43,9 +43,6 @@ function App() {
         <Route path="/tips" element={<Tips />} />
         <Route path="/certifications" element={<Certifications />} />
       </Routes>
-
-      {/* ✅ Floating AI Avatar always visible */}
-      <SmartAvatar />
     </Router>
   );
 }

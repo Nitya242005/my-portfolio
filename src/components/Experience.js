@@ -16,6 +16,16 @@ function Experience() {
           </p>
         </div>
         
+        <div className="card panel-glass p-4 shadow-sm m-3">
+          <h5 className="fw-bold mb-2">Intern</h5>
+          <p className="mb-1"><strong>Company:</strong>Airport Authority of India Southern Region Head Quarters</p>
+          <p className="mb-1"><strong>From:</strong>July 22 2025 - August 1 2025</p>
+          <p className="mb-0">
+           During my internship, I developed an IT Consumables Monitoring System to simplify and optimize the process of tracking, 
+requesting, and managing IT consumables across departments. I collaborated with the project team to design and implement 
+the system, ensuring improved efficiency and streamlined operations.</p> 
+        </div>
+        
       </div>
     </section>
   );

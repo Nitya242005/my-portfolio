@@ -27,6 +27,7 @@ function Home() {
                   strings: [
                     "Designing elegant frontends ⚛️",
                     "Building smart ML-powered solutions 🧠",
+                    "Aspiring Full Stack Dev  ",
                     "Frontend Dev | ML Enthusiast 🚀"
                   ],
                   autoStart: true,

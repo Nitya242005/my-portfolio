@@ -6,28 +6,26 @@ function Projects() {
       title: 'Diabetes Prediction',
       desc: 'Diabetes Prediction using Xgboost Model Integrated with Django',
       github: 'https://github.com/Nitya242005/Diabetes-Prediction.git',
-      demo:'https://github.com/Nitya242005/Diabetes-Prediction.git'
+      // no live demo
     },
     {
       title: 'E-Commerce Website',
       desc: 'Frontend Beauty Product website using HTML,CSS,Javascript and Bootstrap.',
       github: 'https://github.com/Nitya242005/GlowCart.git',
-      demo:'https://lovely-meerkat-fbcc4b.netlify.app/' // replace with your actual live link
+      demo:'https://lovely-meerkat-fbcc4b.netlify.app/'
     },
     {
       title: 'TextUtils Website',
       desc: 'TextUtils- add text and do wonderful transformations you prefer',
       github: 'https://github.com/Nitya242005/textutils.git',
-      demo:'https://textutils-git-main-nitya242005s-projects.vercel.app/' // replace with your actual live link
+      demo:'https://textutils-git-main-nitya242005s-projects.vercel.app/'
     },
-     {
-      title: 'Calculator',
-      desc: 'Perform Mathematical calculations',
-      github: 'https://github.com/Nitya242005/Calculator.git',
-      demo:'https://nitya242005.github.io/Calculator/' // replace with your actual live link
+    {
+      title: 'IT Consumables Monitoring System',
+      desc: 'I developed an IT Consumables Monitoring System to simplify and optimize how departments track, request, and manage IT consumables.',
+      github: 'https://github.com/Nitya242005/Cartridge_system.git',
+      // no live demo
     }
-
-
   ];
 
   return (
@@ -41,12 +39,25 @@ function Projects() {
                 <h5 className="card-title mb-2">{proj.title}</h5>
                 <p className="card-text">{proj.desc}</p>
                 <div className="mt-3 d-flex justify-content-center gap-3 flex-wrap">
-                  <a href={proj.github} className="btn" target="_blank" rel="noopener noreferrer">
+                  <a 
+                    href={proj.github} 
+                    className="btn" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
                     GitHub
                   </a>
-                  <a href={proj.demo} className="btn" target="_blank" rel="noopener noreferrer">
-                    Live Demo
-                  </a>
+                  {/* Show Live Demo only if available */}
+                  {proj.demo && (
+                    <a 
+                      href={proj.demo} 
+                      className="btn" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      Live Demo
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
