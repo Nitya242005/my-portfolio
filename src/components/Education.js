@@ -19,7 +19,7 @@ function Education() {
           <div className="text-start text-dark small">
             <h5 className="mb-1 fw-bold">SRM Institute of Science and Technology, Ramapuram</h5>
             <p className="mb-1"><strong>Degree:</strong> B.Tech in CSE (Big Data Analytics)</p>
-            <p className="mb-0"><strong>CGPA:</strong> 9.96</p>
+            <p className="mb-0"><strong>CGPA:</strong> 9.97</p>
           </div>
         </div>
       </div>
