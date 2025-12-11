@@ -8,7 +8,7 @@ function Home() {
       <div className="container">
         <div className="row align-items-center">
 
-          {/* IMAGE COLUMN */}
+        
           <div className="col-md-4 text-center mb-4 mb-md-0">
             <img 
               src="/Nitya.jpg" 
@@ -17,7 +17,7 @@ function Home() {
             />
           </div>
 
-          {/* TEXT COLUMN */}
+          
           <div className="col-md-8 text-center text-md-start">
             <h1 className="display-4 fade-slide mb-3">Hi, I'm Nityasri</h1>
             

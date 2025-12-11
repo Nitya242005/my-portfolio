@@ -44,7 +44,34 @@ const certifications = [
     "Learned how to break down problems into smaller steps"
   ],
   link: "https://www.hackerrank.com/certificates/6a1789c0dd24"
+},
+{
+  name: "Big Data Computing - NPTEL",
+  companyLogo: "https://edutinker.com/wp-content/uploads/2023/04/NPTEL-A-complete-Guide.png",
+  review: "Gained a strong understanding of big data ecosystems, distributed processing, and real-world data engineering workflows.",
+  takeaways: [
+    "Learned core concepts of Big Data, Hadoop, HDFS, and MapReduce",
+    "Understood how distributed computing handles large-scale datasets",
+    "Explored Apache Spark architecture and performed RDD/DataFrame operations",
+    "Studied NoSQL databases like HBase and Cassandra",
+    "Worked on hands-on programming assignments related to large-scale data processing"
+  ],
+  link: "https://drive.google.com/file/d/1Ia4Alyv6THHdCTG0xREmTWveicojzDLw/view?usp=sharing"
+},
+{
+  name: "Machine Learning Internship - Izeon Innovative",
+  companyLogo: "https://www.izeoninnovative.com/assets/images/white-logo.png",
+  review: "Completed a 1-month internship focused on applying machine learning techniques to real-world datasets and building practical ML models.",
+  takeaways: [
+    "Hands-on experience with data preprocessing, feature engineering, and exploratory data analysis",
+    "Built ML models such as Logistic Regression, Decision Trees, Random Forest, and SVM",
+    "Worked on supervised and unsupervised learning techniques",
+    "Learned model evaluation methods like accuracy, precision, recall, and confusion matrix",
+    "Gained practical exposure to Python libraries like NumPy, Pandas, Matplotlib, and Scikit-learn"
+  ],
+  link: "https://drive.google.com/file/d/1Fg6yy6rxBKb5OaZpb3JF5i2j__ogHimM/view?usp=drive_link"
 }
+
 
 ];
 
