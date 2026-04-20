@@ -1,67 +1,96 @@
-import React from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import '../App.css';
+"use client";
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
 
-function Navbar() {
-  const navigate = useNavigate();
-  const location = useLocation();
+const navLinks = [
+  { name: 'Home', href: '#home' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Skills', href: '#skills' },
+  { name: 'Certifications', href: '#certifications' },
+];
 
-  const handleSectionClick = (sectionId) => {
-    if (location.pathname !== '/') {
-      navigate('/');
-      setTimeout(() => {
-        const section = document.getElementById(sectionId);
-        if (section) section.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    } else {
-      const section = document.getElementById(sectionId);
-      if (section) section.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSegment, setActiveSegment] = useState('Home');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark custom-navbar sticky-top">
-      <div className="container">
-        <Link className="navbar-brand neon-glow" to="/">Nityasri</Link>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span className="navbar-toggler-icon"></span>
-        </button>
+    <nav 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled ? 'py-4 bg-background/80 backdrop-blur-lg border-b border-white/5' : 'py-8 bg-transparent'
+      }`}
+    >
+      <div className="max-w-[1200px] mx-auto px-6 flex justify-between items-center">
+        <motion.div 
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="text-2xl font-bold gradient-text"
+        >
+          NITYA
+        </motion.div>
 
-        <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <span className="nav-link nav-glow" style={{ cursor: "pointer" }} onClick={() => handleSectionClick("home")}>Home</span>
-            </li>
-            <li className="nav-item">
-              <span className="nav-link nav-glow" style={{ cursor: "pointer" }} onClick={() => handleSectionClick("about")}>About</span>
-            </li>
-             <li className="nav-item">
-              <span className="nav-link nav-glow" style={{ cursor: "pointer" }} onClick={() => handleSectionClick("education")}>Education</span>
-            </li>
-            <li className="nav-item">
-              <span className="nav-link nav-glow" style={{ cursor: "pointer" }} onClick={() => handleSectionClick("experience")}>Experience</span>
-            </li>
-            <li className="nav-item">
-              <span className="nav-link nav-glow" style={{ cursor: "pointer" }} onClick={() => handleSectionClick("skills")}>Skills</span>
-            </li>
-            <li className="nav-item">
-              <span className="nav-link nav-glow" style={{ cursor: "pointer" }} onClick={() => handleSectionClick("projects")}>Projects</span>
-            </li>
-           
-            <li className="nav-item">
-              <Link className="nav-link nav-glow" to="/tips">Tips</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link nav-glow" to="/certifications">Certifications</Link>
-            </li>
-            <li className="nav-item">
-              <span className="nav-link nav-glow" style={{ cursor: "pointer" }} onClick={() => handleSectionClick("contact")}>Contact</span>
-            </li>
-          </ul>
+        {/* Desktop Nav */}
+        <div className="hidden md:flex gap-10 items-center">
+          {navLinks.map((link) => (
+            <motion.a
+              key={link.name}
+              href={link.href}
+              whileHover={{ scale: 1.05 }}
+              onClick={() => setActiveSegment(link.name)}
+              className={`text-sm font-medium transition-colors relative hover:text-white ${
+                activeSegment === link.name ? 'text-white' : 'text-text-secondary'
+              }`}
+            >
+              {link.name}
+              {activeSegment === link.name && (
+                <motion.div 
+                  layoutId="nav-active"
+                  className="absolute -bottom-1 left-0 right-0 h-px bg-accent"
+                />
+              )}
+            </motion.a>
+          ))}
+        </div>
+
+        {/* Mobile Toggle */}
+        <div className="md:hidden">
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            {mobileMenuOpen ? <X /> : <Menu />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="absolute top-full left-0 right-0 bg-card border-b border-border p-6 flex flex-col gap-4 md:hidden"
+          >
+            {navLinks.map((link) => (
+              <a 
+                key={link.name} 
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-lg font-medium text-text-secondary hover:text-white"
+              >
+                {link.name}
+              </a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
-
-export default Navbar;
