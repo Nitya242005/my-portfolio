@@ -1,68 +1,78 @@
 export const projects = [
   {
-    title: 'SpeakTrack – AI Speech Analysis System',
-    desc: 'AI-powered web application that analyzes spoken English in real time, providing feedback on fluency, grammar, vocabulary, and speaking patterns. Includes personalized insights and an interactive analytics dashboard.',
+    title: 'SpeakTrack',
+    category: 'AI-Powered English Communication Improvement Platform',
+    desc: 'AI-Powered English Communication Improvement Platform',
+    longDesc: 'Built an AI-powered English communication improvement platform that analyzes speech and provides personalized feedback on speaking performance. Implemented progress tracking, session history, and analytics dashboards to support continuous communication skill development.',
     github: 'https://github.com/Nitya242005/SpeakTrack.git',
-    tags: ['React', 'Node.js', 'AI', 'NLP']
+    tags: ['React.js', 'Node.js', 'MongoDB'],
+    type: 'Full Stack / AI',
+    role: 'Developer',
+    details: [
+      'AI communication improvement',
+      'Speech analysis',
+      'Personalized feedback',
+      'Progress tracking',
+      'Analytics'
+    ]
   },
   {
     title: 'LostItem AutoMatcher',
-    desc: 'Smart lost & found system using CLIP and MiniLM models with geospatial intelligence to automatically match items with high accuracy. Built for efficient recovery workflows.',
+    category: 'AI-Powered Lost-and-Found Platform',
+    desc: 'AI-Powered Lost-and-Found Platform',
+    longDesc: 'Built an intelligent lost-and-found platform utilizing OpenAI’s CLIP model for multimodal image-text matching to improve item identification accuracy. Implemented role-based access control, geospatial search, and end-to-end recovery workflows for efficient item tracking and retrieval.',
     github: 'https://github.com/Nitya242005/SEPM.git',
-    tags: ['React', 'Django', 'PostgreSQL', 'AI']
+    tags: ['React.js', 'Django REST Framework', 'PostgreSQL'],
+    type: 'Full Stack / AI',
+    role: 'Developer',
+    details: [
+      'Multimodal image-text matching',
+      'Role-based access',
+      'Geospatial search',
+      'Recovery workflows'
+    ]
   },
   {
-    title: 'IT Consumables Monitor',
-    desc: 'Operational management system for tracking, requesting, and optimizing IT departmental supplies.',
-    github: 'https://github.com/Nitya242005/Cartridge_system.git',
-    tags: ['Django', 'Python', 'Bootstrap']
+    title: 'AERO-SHIELD',
+    category: 'Team Project · Collaborator / Contributor',
+    desc: 'Full-Stack Edge AI Platform for Aerospace Cybersecurity',
+    longDesc: 'Designed and developed a full-stack Edge AI platform for aerospace cybersecurity using React, FastAPI, and machine learning models to perform real-time threat detection, classification, and predictive aircraft health monitoring. Implemented blockchain-backed evidence management, digital forensics, REST APIs, interactive analytics dashboards, and smart contract integration to ensure secure, tamper-proof incident tracking.',
+    github: 'https://github.com/avanthikapradeep367-eng/AERO-SHIELD.git',
+    tags: ['React', 'TypeScript', 'FastAPI', 'Python', 'PyTorch', 'Scikit-learn', 'PostgreSQL', 'Web3.py'],
+    type: 'Team Project',
+    role: 'Collaborator / Contributor',
+    details: [
+      'Edge AI cybersecurity',
+      'Threat detection',
+      'Aircraft health monitoring',
+      'Blockchain evidence management',
+      'Digital forensics'
+    ]
   }
 ];
 
-export const skills = [
-  { name: 'React', category: 'Frontend' },
-  { name: 'JavaScript', category: 'Frontend' },
-  { name: 'Tailwind CSS', category: 'Frontend' },
-  { name: 'Node.js', category: 'Backend' },
-  { name: 'MongoDB', category: 'Backend' },
-  { name: 'Python', category: 'Backend/ML' },
-  { name: 'Django', category: 'Backend' },
-  { name: 'Machine Learning', category: 'Backend/ML' },
-  { name: 'Deep Learning', category: 'Backend/ML' },
-  { name: 'C++', category: 'Backend' },
-  { name: 'HTML5', category: 'Frontend' },
-  { name: 'CSS3', category: 'Frontend' }
-];
+export const skillsData = {
+  Languages: [
+    'Python', 'Java', 'C++', 'JavaScript', 'TypeScript', 'HTML', 'CSS'
+  ],
+  "Frameworks & Technologies": [
+    'React.js', 'Next.js', 'FastAPI', 'Django', 'Node.js', 'Express.js',
+    'Spring Boot', 'Bootstrap', 'Tailwind CSS', 'SQLAlchemy', 'Scikit-learn',
+    'PyTorch', 'Web3.py', 'Solidity'
+  ],
+  Databases: [
+    'MySQL', 'PostgreSQL', 'MongoDB', 'Supabase'
+  ],
+  Tools: [
+    'Git', 'GitHub', 'Postman', 'Uvicorn', 'Railway', 'Vercel', 'Render'
+  ]
+};
 
 export const certifications = [
-  {
-    name: "30 Days DSA Bootcamp - Unstop",
-    company: "Unstop",
-    desc: "Sharpened DSA skills through structured roadmap and 100+ LeetCode problems.",
-    link: "https://drive.google.com/file/d/1Y9MA8e1W3ql2eME2GwccNFSxKJQODX6t/view"
-  },
-  {
-    name: "SQL Fundamentals to Advanced - Udemy",
-    company: "Udemy",
-    desc: "Mastered indexes, subqueries, and complex joins for analytics and ML reporting.",
-    link: "https://www.udemy.com/certificate/UC-fb460a69-e5e1-4c82-a0a4-e9a317f401e1/"
-  },
-  {
-    name: "Frontend Developer Internship",
-    company: "Izeon Innovative",
-    desc: "Built responsive layouts using modern frontend tools for real-world expectations.",
-    link: "https://drive.google.com/file/d/1ABoNqKOq6N69W_8AJbaFQakPUwFSq5g7/view"
-  },
-  {
-    name: "Problem Solving - HackerRank",
-    company: "HackerRank",
-    desc: "Demonstrated strong logical thinking and algorithmic problem-solving capabilities.",
-    link: "https://www.hackerrank.com/certificates/6a1789c0dd24"
-  },
-  {
-    name: "Big Data Computing - NPTEL",
-    company: "NPTEL",
-    desc: "Hands-on experience with Hadoop, Spark, NoSQL, and distributed data processing.",
-    link: "https://drive.google.com/file/d/1Ia4Alyv6THHdCTG0xREmTWveicojzDLw/view"
-  }
+  { name: 'AWS Cloud Foundations', link: 'https://www.credly.com/badges/91e3938b-8d7f-4770-bbb4-2fd2ef77ed9d/public_url' },
+  { name: 'Big Data Computing (NPTEL – IIT Kanpur)', link: 'https://drive.google.com/file/d/1Ia4Alyv6THHdCTG0xREmTWveicojzDLw/view' },
+  { name: 'SQL Fundamentals to Advanced (Udemy)', link: 'https://drive.google.com/file/d/1Ia4Alyv6THHdCTG0xREmTWveicojzDLw/view' },
+  { name: 'DSA Bootcamp (Unstop)', link: 'https://drive.google.com/file/d/1vhNteSCfvquZdYQtZyu5huwArYogfC4Z/view?usp=drivesdk' },
+  { name: 'Frontend Developer (IZEON)', link: 'https://drive.google.com/file/d/12uxNMwPXOp7u9cfhKyRbI_0fXx-iaqH_/view?usp=drivesdk' },
+  { name: 'Machine Learning Internship (IZEON)', link: 'https://drive.google.com/file/d/1vMf3XJbNZ0AxCWRw7NPI8UnDjjwGECcV/view?usp=drivesdk' }
 ];

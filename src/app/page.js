@@ -1,25 +1,40 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/sections/Hero";
+import WhatIBuild from "@/sections/WhatIBuild";
+import HowIBuild from "@/sections/HowIBuild";
+import QuickStats from "@/sections/QuickStats";
+import About from "@/sections/About";
+import Experience from "@/sections/Experience";
 import Projects from "@/sections/Projects";
 import Skills from "@/sections/Skills";
+import Education from "@/sections/Education";
 import Certifications from "@/sections/Certifications";
-import Footer from "@/components/Footer";
+import Contact from "@/sections/Contact";
+import SectionDivider from "@/components/SectionDivider";
 
 export default function Home() {
   return (
     <main className="relative bg-background text-text-primary selection:bg-accent/30 selection:text-white overflow-hidden">
-      {/* Background Decorative Blob */}
-      <div className="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none opacity-20">
-        <div className="absolute top-[10%] left-[-10%] w-[600px] h-[600px] bg-violet-600/10 blur-[150px] rounded-full" />
-        <div className="absolute bottom-[10%] right-[-10%] w-[500px] h-[500px] bg-cyan-600/10 blur-[150px] rounded-full" />
-      </div>
-
       <Navbar />
       <Hero />
+      <WhatIBuild />
+      <SectionDivider />
+      <HowIBuild />
+      <SectionDivider />
+      <QuickStats />
+      <SectionDivider />
+      <About />
+      <SectionDivider />
+      <Experience />
+      <SectionDivider />
       <Projects />
+      <SectionDivider />
       <Skills />
+      <SectionDivider />
+      <Education />
+      <SectionDivider />
       <Certifications />
-      <Footer />
+      <Contact />
     </main>
   );
 }

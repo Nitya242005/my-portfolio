@@ -7,30 +7,23 @@ import ProjectCard from '@/components/ProjectCard';
 export default function Projects() {
   return (
     <section id="projects" className="py-20 px-6 overflow-hidden">
-      <div className="max-w-[1200px] mx-auto">
+      <div className="max-w-[1400px] mx-auto">
         <motion.div
-           initial={{ opacity: 0, y: 20 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           transition={{ duration: 0.6 }}
-           className="mb-16 text-center"
+          initial={{ opacity: 0, y: 30, rotateX: 5, scale: 0.97 }}
+          whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          style={{ perspective: 1000 }}
+          className="mb-16 text-center"
         >
-          <h2 className="text-4xl font-bold mb-4">Featured <span className="gradient-text">Projects</span></h2>
-          <p className="text-text-secondary max-w-2xl mx-auto">
-            A selection of my recent works across Frontend Development, Machine Learning, and Enterprise Systems.
-          </p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 font-serif">Featured <span className="text-accent">Projects</span></h2>
         </motion.div>
- 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 place-items-center">
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch place-items-stretch">
           {projects.map((project, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1, duration: 0.6 }}
-              className="w-full flex justify-center"
-            >
-              <ProjectCard project={project} />
-            </motion.div>
+            <div key={idx} className="w-full flex justify-center">
+              <ProjectCard project={project} index={idx} />
+            </div>
           ))}
         </div>
       </div>
