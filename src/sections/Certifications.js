@@ -13,7 +13,7 @@ function CertCard({ cert }) {
   const rotateY = useTransform(sx, [-0.5, 0.5], [-5, 5]);
 
   const handleInnerMouseMove = (e) => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || window.matchMedia("(hover: none) and (pointer: coarse)").matches) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const nx = (e.clientX - rect.left) / rect.width - 0.5;
     const ny = (e.clientY - rect.top) / rect.height - 0.5;

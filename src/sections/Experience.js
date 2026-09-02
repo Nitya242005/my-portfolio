@@ -56,7 +56,7 @@ function ExpCard({ exp, idx }) {
   const rotateY = useTransform(sx, [-0.5, 0.5], ["-4deg", "4deg"]);
 
   const handleMouseMove = (e) => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || window.matchMedia("(hover: none) and (pointer: coarse)").matches) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const nx = (e.clientX - rect.left) / rect.width - 0.5;
     const ny = (e.clientY - rect.top) / rect.height - 0.5;
@@ -72,7 +72,7 @@ function ExpCard({ exp, idx }) {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="absolute -left-[45px] md:-left-[85px] top-0 bg-background px-2 text-xl font-bold font-serif text-accent"
+        className="absolute left-0 -top-8 md:top-0 md:-left-[85px] bg-background px-2 text-xl font-bold font-serif text-accent"
       >
         {exp.year}
       </motion.div>
@@ -83,7 +83,7 @@ function ExpCard({ exp, idx }) {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.4, delay: 0.4 }}
-        className="absolute -left-[37px] md:-left-[69px] top-2.5 w-3 h-3 rounded-full bg-accent ring-4 ring-background z-10"
+        className="absolute -left-[21px] md:-left-[69px] top-2.5 w-3 h-3 rounded-full bg-accent ring-4 ring-background z-10"
       />
 
       <motion.div
@@ -94,7 +94,7 @@ function ExpCard({ exp, idx }) {
         onMouseMove={handleMouseMove}
         onMouseLeave={() => { x.set(0); y.set(0); }}
         style={{ perspective: 1000, rotateX, rotateY, transformStyle: "preserve-3d" }}
-        className="glass-card p-8 border border-border hover:border-accent/30 transition-all duration-300 relative group"
+        className="glass-card p-6 md:p-8 border border-border hover:border-accent/30 transition-all duration-300 relative group"
       >
         <div style={{ transform: "translateZ(10px)" }}>
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
@@ -223,7 +223,7 @@ export default function Experience() {
           <div className="h-px bg-border flex-grow ml-4"></div>
         </motion.div>
 
-        <div className="relative border-l-2 border-border/40 ml-4 md:ml-12 pl-8 md:pl-16 space-y-20">
+        <div className="relative border-l-2 border-border/40 ml-4 md:ml-12 pl-4 md:pl-16 space-y-24 md:space-y-20">
           {/* Animated Line that draws down as you scroll */}
           <motion.div 
             initial={{ height: 0 }}

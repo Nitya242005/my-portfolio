@@ -19,7 +19,7 @@ export default function ProjectCard({ project, index = 0 }) {
   const shineY = useTransform(mouseYSpring, [-0.5, 0.5], [0, 100]);
 
   const handleMouseMove = (e) => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || window.matchMedia("(hover: none) and (pointer: coarse)").matches) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
@@ -68,7 +68,7 @@ export default function ProjectCard({ project, index = 0 }) {
       {/* Content Container */}
       <div
         style={{ transform: "translateZ(20px)" }}
-        className="h-full flex flex-col p-8 transition-transform duration-500 ease-out z-20 relative"
+        className="h-full flex flex-col p-6 md:p-8 transition-transform duration-500 ease-out z-20 relative"
       >
         <div className="flex justify-between items-start gap-4 mb-4">
           <div className="text-accent text-xs font-semibold uppercase tracking-widest bg-accent/5 px-3 py-1 rounded-sm border border-accent/20 shadow-sm flex-1">
@@ -98,7 +98,7 @@ export default function ProjectCard({ project, index = 0 }) {
         </p>
 
         {/* Metadata Section */}
-        <div className="grid grid-cols-2 gap-4 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
           <div>
             <div className="text-[10px] text-text-secondary uppercase tracking-wider mb-1 font-semibold">Type</div>
             <div className="text-sm font-medium text-text-primary">{project.type}</div>

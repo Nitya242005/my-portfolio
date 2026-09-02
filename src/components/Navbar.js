@@ -32,7 +32,7 @@ export default function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'py-4 bg-background/80 backdrop-blur-lg border-b border-white/5' : 'py-8 bg-transparent'
         }`}
     >
-      <div className="max-w-[1200px] mx-auto px-6 flex justify-between items-center">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-6 flex justify-between items-center">
 
         {/* Desktop Nav */}
         <div className="hidden md:flex gap-10 items-center">
@@ -71,7 +71,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 bg-card border-b border-border p-6 flex flex-col gap-4 md:hidden"
+            className="absolute top-full left-0 right-0 bg-card/95 backdrop-blur-md border-b border-border p-6 shadow-xl flex flex-col gap-4 md:hidden max-h-[80vh] overflow-y-auto"
           >
             {navLinks.map((link) => (
               <a

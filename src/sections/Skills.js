@@ -31,7 +31,7 @@ export default function Skills() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: idx * 0.15, duration: 0.6, ease: "easeOut" }}
               style={{ perspective: 1000 }}
-              className="glass-card p-8 border-t-2 border-t-accent/50"
+              className="glass-card p-6 md:p-8 border-t-2 border-t-accent/50"
             >
               <h3 className="text-2xl font-bold mb-6 text-text-primary flex items-center gap-3 font-serif">
                 <span className="w-2 h-2 rounded-full bg-accent"></span>

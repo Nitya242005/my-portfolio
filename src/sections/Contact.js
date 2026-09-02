@@ -15,7 +15,7 @@ export default function Contact() {
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-3deg", "3deg"]);
 
   const handleMouseMove = (e) => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || window.matchMedia("(hover: none) and (pointer: coarse)").matches) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
@@ -61,7 +61,7 @@ export default function Contact() {
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           style={{ perspective: 1200, rotateX, rotateY, transformStyle: "preserve-3d" }}
-          className="glass-card max-w-2xl mx-auto p-10 md:p-16 border border-border hover:border-accent/40 transition-colors duration-500 relative group flex flex-col items-center gap-10 shadow-lg"
+          className="glass-card max-w-2xl mx-auto p-8 md:p-16 border border-border hover:border-accent/40 transition-colors duration-500 relative group flex flex-col items-center gap-10 shadow-lg"
         >
           {/* Subtle gold highlight overlay on hover */}
           <motion.div
@@ -84,7 +84,7 @@ export default function Contact() {
 
           <motion.div 
             style={{ transform: "translateZ(30px)" }} 
-            className="flex flex-wrap justify-center gap-6 relative z-20 w-full"
+            className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 relative z-20 w-full"
           >
             <motion.a
               href="https://github.com/Nitya242005"
@@ -93,7 +93,7 @@ export default function Contact() {
               whileHover={{ scale: 1.05, y: -4, rotateX: 4, rotateY: 2, z: 10 }}
               whileTap={{ scale: 0.95, y: 2, z: -5 }}
               style={{ transformStyle: "preserve-3d" }}
-              className="group/btn flex items-center justify-center gap-3 px-8 py-4 border border-border bg-card rounded-sm shadow-md hover:border-accent/50 hover:shadow-accent/10 transition-all duration-300 flex-1 min-w-[200px]"
+              className="group/btn flex items-center justify-center gap-3 px-8 py-4 border border-border bg-card rounded-sm shadow-md hover:border-accent/50 hover:shadow-accent/10 transition-all duration-300 flex-1 w-full sm:w-auto"
             >
               <FaGithub size={20} className="text-text-secondary group-hover/btn:text-accent transition-colors" />
               <span className="font-bold font-serif text-lg text-text-primary group-hover/btn:text-accent transition-colors">GitHub</span>
@@ -106,7 +106,7 @@ export default function Contact() {
               whileHover={{ scale: 1.05, y: -4, rotateX: 4, rotateY: -2, z: 10 }}
               whileTap={{ scale: 0.95, y: 2, z: -5 }}
               style={{ transformStyle: "preserve-3d" }}
-              className="group/btn flex items-center justify-center gap-3 px-8 py-4 border border-border bg-card rounded-sm shadow-md hover:border-accent/50 hover:shadow-accent/10 transition-all duration-300 flex-1 min-w-[200px]"
+              className="group/btn flex items-center justify-center gap-3 px-8 py-4 border border-border bg-card rounded-sm shadow-md hover:border-accent/50 hover:shadow-accent/10 transition-all duration-300 flex-1 w-full sm:w-auto"
             >
               <FaLinkedin size={20} className="text-text-secondary group-hover/btn:text-accent transition-colors" />
               <span className="font-bold font-serif text-lg text-text-primary group-hover/btn:text-accent transition-colors">LinkedIn</span>

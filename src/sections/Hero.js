@@ -51,7 +51,7 @@ export default function Hero() {
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-4deg", "4deg"]);
 
   const handleMouseMove = (e) => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || window.matchMedia("(hover: none) and (pointer: coarse)").matches) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
@@ -86,7 +86,7 @@ export default function Hero() {
             transition={{ duration: 1.5, ease: "easeOut" }}
             style={{ transformStyle: "preserve-3d" }}
           >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight text-text-primary font-serif" style={{ transform: "translateZ(20px)" }}>
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-tight text-text-primary font-serif" style={{ transform: "translateZ(20px)" }}>
               {typedText}
               <motion.span 
                 animate={{ opacity: isTyping ? [1, 0] : 0 }}
@@ -130,14 +130,14 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: introDelay + 0.3 }}
             style={{ perspective: 1000, transformStyle: "preserve-3d" }}
-            className="flex flex-wrap gap-4 mt-4"
+            className="flex flex-col sm:flex-row flex-wrap gap-4 mt-4 w-full sm:w-auto"
           >
             <motion.a 
               href="#projects"
               whileHover={{ scale: 1.05, y: -4, rotateX: 4, rotateY: -2, z: 10, boxShadow: "0px 15px 25px rgba(212, 175, 55, 0.2)" }}
               whileTap={{ scale: 0.95, y: 2, rotateX: -2, z: -5 }}
               style={{ transformStyle: "preserve-3d" }}
-              className="btn-primary flex items-center justify-center border border-accent bg-accent text-background hover:bg-background hover:text-accent hover:border-accent shadow-md transition-all duration-300"
+              className="btn-primary w-full sm:w-auto flex items-center justify-center border border-accent bg-accent text-background hover:bg-background hover:text-accent hover:border-accent shadow-md transition-all duration-300 py-3 px-6"
             >
               <span style={{ transform: "translateZ(5px)" }} className="block">View Projects</span>
             </motion.a>
@@ -148,7 +148,7 @@ export default function Hero() {
               whileHover={{ scale: 1.03, y: -4, rotateX: 5, rotateY: 2, z: 10 }}
               whileTap={{ scale: 0.95, y: 2, z: -5 }}
               style={{ transformStyle: "preserve-3d" }}
-              className="group flex flex-col justify-center px-5 py-2.5 border border-border bg-card rounded-sm shadow-md hover:border-accent/50 hover:shadow-accent/10 transition-all duration-300 flex-1 min-w-[200px]"
+              className="group flex flex-col justify-center px-5 py-3 border border-border bg-card rounded-sm shadow-md hover:border-accent/50 hover:shadow-accent/10 transition-all duration-300 flex-1 w-full sm:w-auto sm:min-w-[180px]"
             >
               <div style={{ transform: "translateZ(8px)" }} className="flex items-center gap-2 text-text-primary mb-0.5 group-hover:text-accent transition-colors">
                 <FaGithub size={16} className="group-hover:-translate-y-0.5 group-hover:rotate-6 transition-transform" />
@@ -164,7 +164,7 @@ export default function Hero() {
               whileHover={{ scale: 1.03, y: -4, rotateX: 5, rotateY: -2, z: 10 }}
               whileTap={{ scale: 0.95, y: 2, z: -5 }}
               style={{ transformStyle: "preserve-3d" }}
-              className="group flex flex-col justify-center px-5 py-2.5 border border-border bg-card rounded-sm shadow-md hover:border-accent/50 hover:shadow-accent/10 transition-all duration-300 flex-1 min-w-[200px]"
+              className="group flex flex-col justify-center px-5 py-3 border border-border bg-card rounded-sm shadow-md hover:border-accent/50 hover:shadow-accent/10 transition-all duration-300 flex-1 w-full sm:w-auto sm:min-w-[180px]"
             >
               <div style={{ transform: "translateZ(8px)" }} className="flex items-center gap-2 text-text-primary mb-0.5 group-hover:text-accent transition-colors">
                 <FaLinkedin size={16} className="group-hover:-translate-y-0.5 group-hover:-rotate-6 transition-transform" />

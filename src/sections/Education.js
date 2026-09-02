@@ -32,7 +32,7 @@ function EduCard({ edu, idx }) {
   const rotateY = useTransform(sx, [-0.5, 0.5], ["-4deg", "4deg"]);
 
   const handleMouseMove = (e) => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || window.matchMedia("(hover: none) and (pointer: coarse)").matches) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const nx = (e.clientX - rect.left) / rect.width - 0.5;
     const ny = (e.clientY - rect.top) / rect.height - 0.5;
@@ -49,7 +49,7 @@ function EduCard({ edu, idx }) {
       onMouseMove={handleMouseMove}
       onMouseLeave={() => { x.set(0); y.set(0); }}
       style={{ perspective: 1000, rotateX, rotateY, transformStyle: "preserve-3d" }}
-      className="glass-card p-8 flex flex-col md:flex-row md:justify-between md:items-center gap-4 hover:border-accent/40 transition-colors duration-300"
+      className="glass-card p-6 md:p-8 flex flex-col md:flex-row md:justify-between md:items-start gap-4 hover:border-accent/40 transition-colors duration-300"
     >
       <div style={{ transform: "translateZ(20px)" }}>
         <h3 className="text-2xl font-bold text-text-primary mb-1 font-serif">{edu.degree}</h3>
