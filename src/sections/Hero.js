@@ -14,8 +14,13 @@ export default function Hero() {
   const [typedText, setTypedText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
   const fullText = "I'm Nityasri";
+  const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
     // Respect reduced motion by skipping the typing delay
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setTypedText(fullText);
@@ -33,7 +38,10 @@ export default function Hero() {
       }
     }, 80);
 
-    return () => clearInterval(typingInterval);
+    return () => {
+      clearInterval(typingInterval);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const mouseXSpring = useSpring(x, { stiffness: 100, damping: 30 });
@@ -129,7 +137,7 @@ export default function Hero() {
               whileHover={{ scale: 1.05, y: -4, rotateX: 4, rotateY: -2, z: 10, boxShadow: "0px 15px 25px rgba(212, 175, 55, 0.2)" }}
               whileTap={{ scale: 0.95, y: 2, rotateX: -2, z: -5 }}
               style={{ transformStyle: "preserve-3d" }}
-              className="btn-primary border border-accent bg-accent text-background hover:bg-background hover:text-accent hover:border-accent shadow-md transition-all duration-300"
+              className="btn-primary flex items-center justify-center border border-accent bg-accent text-background hover:bg-background hover:text-accent hover:border-accent shadow-md transition-all duration-300"
             >
               <span style={{ transform: "translateZ(5px)" }} className="block">View Projects</span>
             </motion.a>
@@ -171,7 +179,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20, rotateX: 5, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: introDelay + 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: isMobile ? 0.2 : introDelay + 0.3 }}
           className="relative flex items-center justify-center order-1 md:order-2 h-[450px] md:h-[600px] w-full pointer-events-auto"
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
@@ -180,49 +188,16 @@ export default function Hero() {
           {/* Subtle glow behind the frame */}
           <div className="absolute inset-0 bg-accent/5 rounded-full blur-[100px] scale-125 -z-10" />
           
-          <motion.div 
-            style={{ 
-              rotateX, 
-              rotateY, 
-              transformStyle: "preserve-3d" 
-            }}
-            className="relative w-[280px] h-[360px] md:w-[380px] md:h-[480px]"
-          >
-            {/* Front Layer: Profile Image Container */}
-            <motion.div 
-              style={{ x: useTransform(mouseXSpring, [-0.5, 0.5], [5, -5]), y: useTransform(mouseYSpring, [-0.5, 0.5], [5, -5]) }}
-              className="absolute inset-0 rounded-sm overflow-hidden shadow-2xl border border-accent/40 bg-card z-10 flex items-center justify-center relative"
-            >
-              <motion.img 
-                style={{ scale: 1.05, x: useTransform(mouseXSpring, [-0.5, 0.5], [-15, 15]), y: useTransform(mouseYSpring, [-0.5, 0.5], [-15, 15]) }}
+          <div className="relative w-[280px] h-[360px] md:w-[380px] md:h-[480px]">
+            <div className="absolute inset-0 rounded-sm overflow-hidden shadow-2xl border border-accent/40 bg-card z-10 flex items-center justify-center relative">
+              <img 
                 src="/Nitya.png" 
                 alt="Nityasri" 
                 className="w-full h-full object-cover object-top"
                 onError={(e) => { e.target.src = "/Nitya.jpg"; }}
               />
-              
-              {/* Elegant slow looping shimmer across the image border */}
-              <motion.div 
-                animate={{
-                  backgroundPosition: ['200% 50%', '-200% 50%']
-                }}
-                transition={{
-                  duration: 8,
-                  ease: "linear",
-                  repeat: Infinity
-                }}
-                className="absolute inset-0 z-20 pointer-events-none opacity-50"
-                style={{
-                  backgroundSize: '200% auto',
-                  backgroundImage: 'linear-gradient(120deg, transparent 40%, rgba(212,175,55,0.4) 50%, transparent 60%)',
-                  mixBlendMode: 'overlay'
-                }}
-              />
-              
-              {/* Subtle gold gradient overlay at the bottom for elegance */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-80 pointer-events-none z-10"></div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
