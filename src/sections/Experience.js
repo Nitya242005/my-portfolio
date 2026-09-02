@@ -10,6 +10,8 @@ const experiences = [
     role: "Web Developer Intern",
     period: "Apr 2026 – Present",
     tag: "Central Government project — currently under deployment stage",
+    docLink: "https://drive.google.com/file/d/12tw-5RJ3R_d2gJjMz8F5FQg1T6F-s27l/view?usp=drivesdk",
+    docText: "Offer Letter ↗",
     areas: [
       {
         title: "Digital Library Platform",
@@ -35,6 +37,8 @@ const experiences = [
     period: "Jul 2025 – Aug 2025",
     project: "IT Consumables Monitoring System",
     technologies: ["React.js", "Django"],
+    docLink: "https://drive.google.com/file/d/1FcBSuz9qHjhCjnQhQo-UmcB-0PzfQMph/view?usp=drivesdk",
+    docText: "Internship Certificate ↗",
     bullets: [
       "Developed an IT Consumables Monitoring System using React.js and Django for inventory tracking, request management, and approval workflows.",
       "Implemented centralized inventory visibility with consumable requests, stock monitoring, and approval management.",
@@ -173,6 +177,29 @@ function ExpCard({ exp, idx }) {
                 {tech}
               </motion.span>
             ))}
+          </motion.div>
+        )}
+
+        {exp.docLink && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 1.0 }}
+            style={{ transform: "translateZ(25px)" }}
+            className="mt-6 inline-block"
+          >
+            <motion.a
+              href={exp.docLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.02, y: -2, rotateX: 2, rotateY: -1, z: 5, boxShadow: "0px 8px 15px rgba(212, 175, 55, 0.15)" }}
+              whileTap={{ scale: 0.98, y: 1, rotateX: -1, z: -2 }}
+              style={{ transformStyle: "preserve-3d" }}
+              className="inline-flex items-center justify-center px-5 py-2.5 bg-background border border-accent/30 rounded-sm shadow-sm text-text-primary text-sm font-semibold hover:border-accent hover:text-accent hover:bg-accent/5 transition-all duration-300"
+            >
+              <span style={{ transform: "translateZ(2px)" }} className="block">{exp.docText}</span>
+            </motion.a>
           </motion.div>
         )}
       </motion.div>
